@@ -1,0 +1,58 @@
+
+--- [START 2019-07-11_13-50-33] ----------------------------------------------------------------
+
+	@train_customized_gnn.py:  
+	set random seed
+		SEED = 1562824233
+	set cuda environment
+		torch.__version__              = 1.1.0
+		torch.version.cuda             = 10.0.130
+		torch.backends.cudnn.version() = 7501
+		os['CUDA_VISIBLE_DEVICES']     = 0
+		torch.cuda.device_count()      = 1
+
+
+
+	SEED         = 1562824233
+	PROJECT_PATH = /home/alexpartisan/Work/Data/Competition/CHAMP/GNN/build
+	__file__     = train_customized_gnn.py
+	out_dir      = /home/alexpartisan/Work/Data/Competition/CHAMP/GNN/results/0711_2
+
+** dataset setting **
+batch_size = 16
+train_dataset : 
+	mode   = train
+	split  = train_split_by_mol_1_56669.npy
+	csv    = train
+	len    = 56669
+
+valid_dataset : 
+	mode   = train
+	split  = valid_split_by_mol_1_28334.npy
+	csv    = train
+	len    = 28334
+
+
+** net setting **
+	initial_checkpoint = None
+<class '__main__.Net'>
+
+optimizer
+  Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)
+schduler
+  NullScheduler
+lr=0.00100 
+
+** start training here! **
+   batch_size =16,  iter_accum=1
+                      |--------------- VALID ----------------------------------------------------------------|-- TRAIN/BATCH ---------
+                      |std 18.3     4.5     3.1    10.9     3.7     1.3     4.0    3.7  |                    |        | 
+rate     iter   epoch |    1JHC,   2JHC,   3JHC,   1JHN,   2JHN,   3JHN,   2JHH,   3JHH |  loss  mae log_mae | loss   | time          
+--------------------------------------------------------------------------------------------------------------------------------------
